@@ -5,30 +5,30 @@ import java.util.stream.*;
 
 public class FunctionalProgramming {
     public static void main(String[] args) {
-        // We create a list of numbers for you
+       
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        // First, let's print our original list
+       
         System.out.println("Original numbers: " + numbers);
 
-        // TASK 1: Filter even numbers and print them
+        
         List<Integer> evenNumbers = numbers.stream()
                 .filter(n -> n % 2 == 0)     // Keeps only even numbers
                 .collect(Collectors.toList());  // Collects results into a new list
 
         System.out.println("Even numbers: " + evenNumbers);
 
-        // TASK 2: Double each number in the list and print the transformed list
+      
         List<Integer> doubledNumbers = numbers.stream()
                 .map(n -> n * 2)  // Doubles each number
                 .collect(Collectors.toList());
 
-        // TASK 3: Sum all numbers in doubledNumbers
+        
         int sum = numbers.stream()
                 .mapToInt(n -> n * 2)  // Doubles numbers and converts to IntStream
                 .sum();  // Sums all numbers
 
-        // Print results
+     
         System.out.println("Doubled numbers: " + doubledNumbers);
         System.out.println("Sum of doubled numbers: " + sum);
     }
@@ -67,7 +67,7 @@ public class StudentStreamLab {
                 new Student("Eve", 3.9, "Junior")
         );
 
-        // Filtering: Students with GPA > 3.0
+       
         List<Student> highGpaStudents = students.stream()
                 .filter(s -> s.gpa > 3.0)
                 .collect(Collectors.toList());
@@ -75,7 +75,7 @@ public class StudentStreamLab {
         System.out.println("Students with GPA > 3.0:");
         highGpaStudents.forEach(System.out::println);
 
-        // Mapping: Extract names of students with GPA > 3.0
+       
         List<String> highGpaNames = students.stream()
                 .filter(s -> s.gpa > 3.0)
                 .map(s -> s.name)
@@ -84,7 +84,7 @@ public class StudentStreamLab {
         System.out.println("\nHigh GPA student names:");
         highGpaNames.forEach(System.out::println);
 
-        // Reducing: Calculate the average GPA of all students
+        //Calculate the average GPA of all students
         double averageGpa = students.stream()
                 .mapToDouble(s -> s.gpa)
                 .average()
